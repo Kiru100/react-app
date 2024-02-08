@@ -8,7 +8,7 @@ export default function App() {
     return (
         <div>
             {
-                Boolean(is_alert_visible) && (<Alert setAlertVisible={setAlertVisible}>My Alert</Alert>)
+                Boolean(is_alert_visible) && (<Alert onClose={()=>setAlertVisible(false)}>My Alert</Alert>)
             }
             <Button color="primary" button_content="Primary" onClick={()=>setAlertVisible(true)}/>
         </div>
