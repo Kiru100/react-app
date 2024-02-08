@@ -1,14 +1,16 @@
-import Button from "./components/Button"
+import { useState } from "react"
+import Button from "./components/Button";
+import Alert from "./components/Alert";
 
 export default function App() {
-
-    const handleClick  = () =>{
-
-    }
+    const [is_alert_visible, setAlertVisible] = useState(true);
 
     return (
         <div>
-            <Button color="primary" button_content="Primary" onClick={handleClick}/>
+            {
+                Boolean(is_alert_visible) && (<Alert setAlertVisible={setAlertVisible}>My Alert</Alert>)
+            }
+            <Button color="primary" button_content="Primary" onClick={()=>setAlertVisible(true)}/>
         </div>
     )
 }
