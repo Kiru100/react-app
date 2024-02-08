@@ -1,9 +1,10 @@
-import ListGroup from "./components/ListGroup"
+import Button from "./components/Button"
 
 export default function App() {
-  const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
-  return (
-    <div><ListGroup items={items} heading="Cities" /></div>
-  )
+    return (
+        <div>
+            <Button button_class_name="btn-primary" button_content="Primary"/>
+        </div>
+    )
 }

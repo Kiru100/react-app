@@ -1,16 +1,14 @@
 
 
 import { MouseEvent, useState } from "react";
-
 interface ListGroupProps {
     items: string[];
     heading: string;
+    onSelectedItem: (item:string) => void;
 }
 
-function ListGroup({items, heading}: ListGroupProps){
+function ListGroup({items, heading, onSelectedItem}: ListGroupProps){
     const [ selected_index, setSelectIndex] = useState(-1);
-    
-
     
     return (
         <>
@@ -22,7 +20,10 @@ function ListGroup({items, heading}: ListGroupProps){
                         className={`list-group-item ${Boolean(selected_index === index) && "active"}`} 
                         key={index + item} 
                         style={{cursor:"pointer"}}
-                        onClick={()=>setSelectIndex(index)}
+                        onClick={()=>{
+                            setSelectIndex(index);
+                            onSelectedItem(item);
+                        } }
                     >
                             {item}                        
                     </li>
