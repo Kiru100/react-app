@@ -2,9 +2,13 @@ import Button from "./components/Button"
 
 export default function App() {
 
+    const handleClick  = () =>{
+
+    }
+
     return (
         <div>
-            <Button button_class_name="btn-primary" button_content="Primary"/>
+            <Button color="primary" button_content="Primary" onClick={handleClick}/>
         </div>
     )
 }
