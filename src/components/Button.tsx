@@ -1,13 +1,12 @@
-import React from 'react'
-
 interface Props{
-    button_class_name: string;
+    color?: 'primary' | 'secondary' | 'danger';
     button_content: string;
+    onClick: ()=>void;
 }
 
-function Button({button_class_name, button_content}:Props) {
+function Button({color = "primary", button_content, onClick}:Props) {
   return (
-    <button type="button" className={`btn ${button_class_name}`}>{button_content}</button>
+    <button type="button" className={`btn btn-${color}`} onClick={onClick}>{button_content}</button>
   )
 }
 
