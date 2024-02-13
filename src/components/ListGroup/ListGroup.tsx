@@ -29,7 +29,7 @@ function ListGroup({items, heading, onSelectedItem}: ListGroupProps){
     return (
         <>
             <h1>{heading}</h1>
-            <List className="list-group">
+            <List className="list-group" style={{backgroundColor:'yellow'}}>
                 {Boolean(!items.length) && <p>No item found</p>}
                 {items.map((item, index)=> 
                     <ListItem 
