@@ -1,8 +1,9 @@
 import { useState } from "react"
-import Button from "./components/Button";
+import Button from "./components/Button/Button";
 import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup/ListGroup";
 import { BsCalendar2MinusFill } from "react-icons/bs";
+import Like from "./components/Like/Like";
 
 
 export default function App() {
@@ -17,8 +18,11 @@ export default function App() {
                 Boolean(is_alert_visible) && (<Alert onClose={()=>setAlertVisible(false)}>My Alert</Alert>)
             }
             <Button color="primary" button_content="Primary" onClick={()=>setAlertVisible(true)}/> */}
-            <BsCalendar2MinusFill />
+            <BsCalendar2MinusFill color="red" />
+            <Button color="primary" button_content="Primary" onClick={()=>setAlertVisible(true)}/> 
             <div><ListGroup items={items} heading="Cities"onSelectedItem={onSelectedItem} /></div>
+
+            <Like onClick={()=>console.log("clicked")}/>
         </div>
     )
 }
