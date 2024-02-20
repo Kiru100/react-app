@@ -10,9 +10,7 @@ export default function UpdatingPizzaState() {
     })
 
     const handleClick = (selected_cart_index: number, increase: boolean) =>{
-        
         const updated_cart_items = [...carts.items];
-
         const updated_quantity = (increase) ? (updated_cart_items[selected_cart_index].quantity + 1) : (updated_cart_items[selected_cart_index].quantity - 1)
 
         updated_cart_items[selected_cart_index] = {
