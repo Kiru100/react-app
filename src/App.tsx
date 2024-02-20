@@ -9,6 +9,7 @@ import Cart from "./components/Cart";
 import UpdatingReactState from "./components/UpdatingStates/UpdatingReactState";
 import UpdatingPizzaState from "./components/UpdatingStates/UpdatingPizzaState";
 import UpdatingCartState from "./components/UpdatingStates/UpdatingCartState";
+import Form from "./components/Form";
 
 
 export default function App() {
@@ -38,6 +39,9 @@ export default function App() {
             <UpdatingReactState></UpdatingReactState>
             <UpdatingPizzaState></UpdatingPizzaState>
             <UpdatingCartState></UpdatingCartState>
+
+
+            <Form></Form>
         </div>
     )
 }
