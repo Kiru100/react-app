@@ -20,7 +20,7 @@ interface ListItemProps{
 interface ListGroupProps {
     items: string[];
     heading: string;
-    onSelectedItem: (item:string) => void;
+    onSelectedItem: (item: string) => void;
 }
 
 function ListGroup({items, heading, onSelectedItem}: ListGroupProps){
