@@ -23,6 +23,7 @@ export default function App() {
     }
     return (
         <div>
+            <Form></Form>
             {/* {
                 Boolean(is_alert_visible) && (<Alert onClose={()=>setAlertVisible(false)}>My Alert</Alert>)
             }
@@ -30,18 +31,12 @@ export default function App() {
             <BsCalendar2MinusFill color="red" />
             <Button color="primary" button_content="Primary" onClick={()=>setAlertVisible(true)}/> 
             <div><ListGroup items={items} heading="Cities"onSelectedItem={onSelectedItem} /></div>
-
             <Like onClick={()=>console.log("clicked")}/>
-
             <NavBar cartItemsCount={cart_items.length}></NavBar>
             <Cart cartItems={cart_items} onClear={()=>setCartItems([])}></Cart>
-
             <UpdatingReactState></UpdatingReactState>
             <UpdatingPizzaState></UpdatingPizzaState>
             <UpdatingCartState></UpdatingCartState>
-
-
-            <Form></Form>
         </div>
     )
 }
