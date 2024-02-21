@@ -3,15 +3,16 @@ import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
+/** zod.dev */
 const schema = z.object({
-	name: z.string().min(3),
-	age: z.number().min(18)
+	name: z.string().min(3, {message: "Name must be at least 3 characters."}),
+	age: z.number({invalid_type_error: "Age field is required."}).min(18, {message: "Age must be at least 18."})
 });
 
 type FormData =  z.infer<typeof schema>;
 
 export default function Form() {
-	const {register, handleSubmit, formState: {errors}} = useForm<FormData>({resolver: zodResolver(schema)});
+	const { register, handleSubmit, formState: {errors} } = useForm<FormData>({resolver: zodResolver(schema)});
 	const onSubmit = (data: FieldValues) => console.log(data);
 
 	return (
@@ -29,7 +30,7 @@ export default function Form() {
 			<div className="mb-3">
 				<label htmlFor="age" className="form-label">Age</label>
 				<input 
-					{...register("age")}
+					{...register("age", {valueAsNumber: true})}
 					id="age" 
 					type="number" 
 					className="form-control" 
