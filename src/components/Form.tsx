@@ -1,7 +1,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 /** zod.dev */
 const schema = z.object({
@@ -12,7 +12,11 @@ const schema = z.object({
 type FormData =  z.infer<typeof schema>;
 
 export default function Form() {
-	const { register, handleSubmit, formState: {errors} } = useForm<FormData>({resolver: zodResolver(schema)});
+	const { 
+		register, 
+		handleSubmit, 
+		formState: {errors, isValid} 
+	} = useForm<FormData>({resolver: zodResolver(schema)});
 	const onSubmit = (data: FieldValues) => console.log(data);
 
 	return (
@@ -37,7 +41,7 @@ export default function Form() {
 				/>
 				{ errors.age && <p className="text-danger">{errors.age.message}</p>}			
 			</div>
-			<button className="btn btn-primary" type="submit">Submit</button>
+			<button className="btn btn-primary" type="submit" disabled={!isValid}>Submit</button>
 		</form>
 	)
 }
