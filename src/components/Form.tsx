@@ -1,10 +1,16 @@
 import { FormEvent, useRef, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import { z } from "zod";
 
 interface FormData {
 	name: string,
 	age: number
 }
+
+z.object({
+	name: z.string().min(3),
+	age: z.number().min(18)
+})
 
 export default function Form() {
 
